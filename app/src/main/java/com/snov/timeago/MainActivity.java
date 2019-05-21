@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             //Pass your timestamp and SimpleDateFormat object to PrettyTimeAgo.timesampToMilli(timestamp , dateformat) method.
             //It will return timestamp in milliseconds as a long.
-            dateInMillis = PrettyTimeAgo.timestampToMilli("20-05-2019:00-01-00", desiredFormat);
+            dateInMillis = PrettyTimeAgo.timestampToMilli("21-05-2019:10-01-00", desiredFormat);
 
             //Current time in milliseconds
             long now = System.currentTimeMillis();
