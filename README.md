@@ -14,30 +14,37 @@ allprojects {
 implementation 'com.github.shamalka:Pretty-TimeAgo-android-library:1.0.0'
 ```
 
+# Methods
+```
+getTimeAgo(long time) 
+// time : Time in milliseconds
+
+getTimeAgo(Context context, String timeString, String simpleDateFormat) 
+// timeString : Time in preffered string format (Refer example)
+// simpleDateFormat : Date format equal to timeString's format
+```
+
 # Example
 ```
-//Initialize date format
-        SimpleDateFormat desiredFormat = new SimpleDateFormat(
-                "yyyy.MM.dd G 'at' HH:mm:ss z");
-        long dateInMillis = 0;
-        try {
-            //Pass your timestamp and SimpleDateFormat object to PrettyTimeAgo.timesampToMilli(timestamp , dateformat) method.
-            //It will return timestamp in milliseconds as a long.
-            dateInMillis = PrettyTimeAgo.timestampToMilli("2019.05.21 AD at 13:41:56 GMT+05:30", desiredFormat);
+	try {
+            String timeAgoWithStringDate = PrettyTimeAgo.getTimeAgo(
+                    this, 
+                    "2021.05.05 AD at 13:41:56 GMT+05:30", 
+                    "yyyy.MM.dd G 'at' HH:mm:ss z"
+            );
 
-            //Current time in milliseconds
-            long now = System.currentTimeMillis();
-
-            //PrettyTimeAgo.getTimeAgo(pasttime_in_milliseconds) method returns ago time relative to current time.
-            String TimeAgo = PrettyTimeAgo.getTimeAgo(dateInMillis);
-
-            TextView timeText = (TextView)findViewById(R.id.timeago);
-            timeText.setText(TimeAgo + " | " + dateInMillis + " | " + now);
+            long dateInMillis = PrettyTimeAgo.timestampToMilli(
+                    this,
+                    "2019.05.21 AD at 13:41:56 GMT+05:30", 
+                    "yyyy.MM.dd G 'at' HH:mm:ss z"
+            );
+            String timeAgoWithMillisecondDate = PrettyTimeAgo.getTimeAgo(dateInMillis);
         } catch (ParseException e) {
-
+            // Do error handling here
             e.printStackTrace();
         }
 ```
+
 SimpleDateFormat patterns you can use.
 ```
 "yyyy.MM.dd G 'at' HH:mm:ss z" ---- 2001.07.04 AD at 12:08:56 PDT
