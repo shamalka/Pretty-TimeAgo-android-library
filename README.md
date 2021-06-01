@@ -11,7 +11,7 @@ allprojects {
 }
 ```
 ```
-implementation 'com.github.shamalka:Pretty-TimeAgo-android-library:1.0.0'
+implementation 'com.github.shamalka:Pretty-TimeAgo-android-library:1.1.0'
 ```
 
 # Methods
