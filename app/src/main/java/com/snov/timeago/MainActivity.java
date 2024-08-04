@@ -18,13 +18,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Initialize date format
-        SimpleDateFormat desiredFormat = new SimpleDateFormat(
-                "yyyy.MM.dd G 'at' HH:mm:ss z");
+        String desiredFormat = "yyyy.MM.dd G 'at' HH:mm:ss z";
         long dateInMillis = 0;
         try {
             //Pass your timestamp and SimpleDateFormat object to PrettyTimeAgo.timesampToMilli(timestamp , dateformat) method.
             //It will return timestamp in milliseconds as a long.
-            dateInMillis = PrettyTimeAgo.timestampToMilli("2019.05.21 AD at 13:41:56 GMT+05:30", desiredFormat);
+            dateInMillis = PrettyTimeAgo.timestampToMilli(this,"2019.05.21 AD at 13:41:56 GMT+05:30", desiredFormat);
 
             //Current time in milliseconds
             long now = System.currentTimeMillis();
